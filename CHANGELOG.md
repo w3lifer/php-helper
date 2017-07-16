@@ -1,4 +1,4 @@
-# PhpHelper
+# PhpHelper Change Log
 
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
