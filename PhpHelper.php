@@ -6,7 +6,6 @@ use DateTime;
 
 /**
  * PHP Helper.
- * @author Roman Grinyov <w3lifer@gmail.com>
  */
 class PhpHelper
 {
