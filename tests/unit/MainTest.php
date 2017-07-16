@@ -232,4 +232,68 @@ NOWDOC
                 ],
             ]));
     }
+
+    public function test_sort_by_date()
+    {
+        $this->assertEquals(
+            [
+                [
+                    'title' => 'Title 1',
+                    'date'  => '1969-12-31',
+                ],
+                [
+                    'title' => 'Title 2',
+                    'date'  => '1970-01-01',
+                ],
+                [
+                    'title' => 'Title 3',
+                    'date'  => '1970-01-02',
+                ],
+            ],
+            PhpHelper::sort_by_date([
+                [
+                    'title' => 'Title 2',
+                    'date'  => '1970-01-01',
+                ],
+                [
+                    'title' => 'Title 1',
+                    'date'  => '1969-12-31',
+                ],
+                [
+                    'title' => 'Title 3',
+                    'date'  => '1970-01-02',
+                ],
+            ], 'date')
+        );
+        $this->assertEquals(
+            [
+                [
+                    'title' => 'Title 3',
+                    'date'  => '1970-01-02',
+                ],
+                [
+                    'title' => 'Title 2',
+                    'date'  => '1970-01-01',
+                ],
+                [
+                    'title' => 'Title 1',
+                    'date'  => '1969-12-31',
+                ],
+            ],
+            PhpHelper::sort_by_date([
+                [
+                    'title' => 'Title 2',
+                    'date'  => '1970-01-01',
+                ],
+                [
+                    'title' => 'Title 1',
+                    'date'  => '1969-12-31',
+                ],
+                [
+                    'title' => 'Title 3',
+                    'date'  => '1970-01-02',
+                ],
+            ], 'date', false)
+        );
+    }
 }

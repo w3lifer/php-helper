@@ -286,4 +286,61 @@ class PhpHelper
             preg_replace('=(\R {2,})\),=', '$1],', $arrayAsString);
         return $arrayAsString;
     }
+
+    /**
+     * Sorts array by date.
+     * For example, if the received array will be as the following:
+     * ```
+     * [
+     *   [
+     *     'title' => 'Title 2',
+     *     'date'  => '1970-01-01',
+     *   ],
+     *   [
+     *     'title' => 'Title 1',
+     *     'date'  => '1969-12-31',
+     *   ],
+     *   [
+     *     'title' => 'Title 3',
+     *     'date'  => '1970-01-02',
+     *   ],
+     * ]
+     * ```
+     * then the result will be:
+     * ```
+     * [
+     *   [
+     *     'title' => 'Title 1',
+     *     'date'  => '1969-12-31',
+     *   ],
+     *   [
+     *     'title' => 'Title 2',
+     *     'date'  => '1970-01-01',
+     *   ],
+     *   [
+     *     'title' => 'Title 3',
+     *     'date'  => '1970-01-02',
+     *   ],
+     * ]
+     * ```
+     * @param array  $array
+     * @param string $key
+     * @param bool   $asc
+     * @return array
+     * @see https://stackoverflow.com/a/6401744/4223982
+     */
+    public static function sort_by_date(
+        array $array,
+        string $key,
+        $asc = true
+    ) : array
+    {
+        usort($array, function ($a, $b) use ($key) {
+            return strtotime($a[$key]) - strtotime($b[$key]);
+        });
+        if (!$asc) {
+            $array = array_reverse($array);
+        }
+        return $array;
+    }
 }
