@@ -22,80 +22,80 @@ class MainTest extends \Codeception\Test\Unit
     public function test_add_prefix_to_array_keys()
     {
         $this->assertEquals(
-            PhpHelper::add_prefix_to_array_keys([], ''),
-            []
+            [],
+            PhpHelper::add_prefix_to_array_keys([], '')
         );
         $this->assertEquals(
-            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], ''),
-            ['a' => 1, 'b' => 2]
+            ['a' => 1, 'b' => 2],
+            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], '')
         );
         $this->assertEquals(
-            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], '_'),
-            ['_a' => 1, '_b' => 2]
+            ['_a' => 1, '_b' => 2],
+            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], '_')
         );
         $this->assertEquals(
-            PhpHelper::add_prefix_to_array_keys([
-                'a' => 1,
-                'b' => 2,
-                'c' => ['a' => 11, 'b' => 22]
-            ], '_'),
             [
                 '_a' => 1,
                 '_b' => 2,
                 '_c' => ['_a' => 11, '_b' => 22]
-            ]
-        );
-        $this->assertEquals(
+            ],
             PhpHelper::add_prefix_to_array_keys([
                 'a' => 1,
                 'b' => 2,
                 'c' => ['a' => 11, 'b' => 22]
-            ], '_', false),
+            ], '_')
+        );
+        $this->assertEquals(
             [
                 '_a' => 1,
                 '_b' => 2,
                 '_c' => ['a' => 11, 'b' => 22]
-            ]
+            ],
+            PhpHelper::add_prefix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_', false)
         );
     }
 
     public function test_add_suffix_to_array_keys()
     {
         $this->assertEquals(
-            PhpHelper::add_suffix_to_array_keys([], ''),
-            []
+            [],
+            PhpHelper::add_suffix_to_array_keys([], '')
         );
         $this->assertEquals(
-            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], ''),
-            ['a' => 1, 'b' => 2]
+            ['a' => 1, 'b' => 2],
+            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '')
         );
         $this->assertEquals(
-            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '_'),
-            ['a_' => 1, 'b_' => 2]
+            ['a_' => 1, 'b_' => 2],
+            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '_')
         );
         $this->assertEquals(
-            PhpHelper::add_suffix_to_array_keys([
-                'a' => 1,
-                'b' => 2,
-                'c' => ['a' => 11, 'b' => 22]
-            ], '_'),
             [
                 'a_' => 1,
                 'b_' => 2,
                 'c_' => ['a_' => 11, 'b_' => 22]
-            ]
-        );
-        $this->assertEquals(
+            ],
             PhpHelper::add_suffix_to_array_keys([
                 'a' => 1,
                 'b' => 2,
                 'c' => ['a' => 11, 'b' => 22]
-            ], '_', false),
+            ], '_')
+        );
+        $this->assertEquals(
             [
                 'a_' => 1,
                 'b_' => 2,
                 'c_' => ['a' => 11, 'b' => 22]
-            ]
+            ],
+            PhpHelper::add_suffix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_', false)
         );
     }
 
@@ -167,16 +167,16 @@ class MainTest extends \Codeception\Test\Unit
     public function test_get_dates_between_dates()
     {
         $this->assertEquals(
-            PhpHelper::get_dates_between_dates('1969-12-31', '1970-01-02'),
-            ['1969-12-31', '1970-01-01', '1970-01-02']
+            ['1969-12-31', '1970-01-01', '1970-01-02'],
+            PhpHelper::get_dates_between_dates('1969-12-31', '1970-01-02')
         );
         $this->assertEquals(
+            ['12/31/1969', '01/01/1970', '01/02/1970'],
             PhpHelper::get_dates_between_dates(
                 '12/31/1969',
                 '01/02/1970',
                 'm/d/Y'
-            ),
-            ['12/31/1969', '01/01/1970', '01/02/1970']
+            )
         );
     }
 
