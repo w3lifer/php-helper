@@ -1,7 +1,16 @@
 # PhpHelper Change Log
 
+- [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 1.2.0 July 16, 2017
+
+- Enh: Added method:
+
+``` php
+sort_by_date(array $array, string $key, bool $asc = true) : array
+```
 
 ## 1.1.0 July 16, 2017
 
