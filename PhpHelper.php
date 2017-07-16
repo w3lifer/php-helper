@@ -332,7 +332,7 @@ class PhpHelper
     public static function sort_by_date(
         array $array,
         string $key,
-        $asc = true
+        bool $asc = true
     ) : array
     {
         usort($array, function ($a, $b) use ($key) {
