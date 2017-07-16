@@ -10,6 +10,56 @@ use DateTime;
 class PhpHelper
 {
     /**
+     * Returns received array where keys are prefixed with specified prefix.
+     * @param array  $array
+     * @param string $prefix
+     * @param bool   $recursively
+     * @return array
+     */
+    public static function add_prefix_to_array_keys(
+        array $array,
+        string $prefix,
+        $recursively = true
+    ) : array
+    {
+        $newArray = [];
+        foreach ($array as $key => $value) {
+            if ($recursively && is_array($value)) {
+                $newArray[$prefix . $key] =
+                    self::add_prefix_to_array_keys($value, $prefix);
+                continue;
+            }
+            $newArray[$prefix . $key] = $value;
+        }
+        return $newArray;
+    }
+
+    /**
+     * Returns received array where keys are suffixed with specified suffix.
+     * @param array  $array
+     * @param string $suffix
+     * @param bool   $recursively
+     * @return array
+     */
+    public static function add_suffix_to_array_keys(
+        array $array,
+        string $suffix,
+        $recursively = true
+    ) : array
+    {
+        $newArray = [];
+        foreach ($array as $key => $value) {
+            if ($recursively && is_array($value)) {
+                $newArray[$key . $suffix] =
+                    self::add_suffix_to_array_keys($value, $suffix);
+                continue;
+            }
+            $newArray[$key . $suffix] = $value;
+        }
+        return $newArray;
+    }
+
+    /**
      * Basic access authentication.
      * @param array $credentials An array whose keys are logins and values are
      *                           passwords.

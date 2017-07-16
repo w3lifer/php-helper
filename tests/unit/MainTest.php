@@ -19,6 +19,86 @@ class MainTest extends \Codeception\Test\Unit
 
     /* ---------------------------------------------------------------------- */
 
+    public function test_add_prefix_to_array_keys()
+    {
+        $this->assertEquals(
+            PhpHelper::add_prefix_to_array_keys([], ''),
+            []
+        );
+        $this->assertEquals(
+            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], ''),
+            ['a' => 1, 'b' => 2]
+        );
+        $this->assertEquals(
+            PhpHelper::add_prefix_to_array_keys(['a' => 1, 'b' => 2], '_'),
+            ['_a' => 1, '_b' => 2]
+        );
+        $this->assertEquals(
+            PhpHelper::add_prefix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_'),
+            [
+                '_a' => 1,
+                '_b' => 2,
+                '_c' => ['_a' => 11, '_b' => 22]
+            ]
+        );
+        $this->assertEquals(
+            PhpHelper::add_prefix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_', false),
+            [
+                '_a' => 1,
+                '_b' => 2,
+                '_c' => ['a' => 11, 'b' => 22]
+            ]
+        );
+    }
+
+    public function test_add_suffix_to_array_keys()
+    {
+        $this->assertEquals(
+            PhpHelper::add_suffix_to_array_keys([], ''),
+            []
+        );
+        $this->assertEquals(
+            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], ''),
+            ['a' => 1, 'b' => 2]
+        );
+        $this->assertEquals(
+            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '_'),
+            ['a_' => 1, 'b_' => 2]
+        );
+        $this->assertEquals(
+            PhpHelper::add_suffix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_'),
+            [
+                'a_' => 1,
+                'b_' => 2,
+                'c_' => ['a_' => 11, 'b_' => 22]
+            ]
+        );
+        $this->assertEquals(
+            PhpHelper::add_suffix_to_array_keys([
+                'a' => 1,
+                'b' => 2,
+                'c' => ['a' => 11, 'b' => 22]
+            ], '_', false),
+            [
+                'a_' => 1,
+                'b_' => 2,
+                'c_' => ['a' => 11, 'b' => 22]
+            ]
+        );
+    }
+
     public function test_auth()
     {
         $this->assertFalse(PhpHelper::auth([]));
