@@ -1,0 +1,22 @@
+{
+  "name": "w3lifer/php-helper",
+  "keywords": [
+    "php",
+    "helper"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7"
+  },
+  "authors": [
+    {
+      "name": "Roman Grinyov",
+      "email": "w3lifer@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "w3lifer\\phpHelper\\": ""
+    }
+  }
+}
