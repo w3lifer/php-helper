@@ -165,7 +165,8 @@ class PhpHelper
 
     /**
      * Returns an array of dates between two dates.
-     * Example of the returned array:
+     * For example, if input data will be '1969-12-31' and '1970-01-02'
+     * (or '12/31/1969' and '01/02/1970'), then result will be the following:
      * ``` php
      * [
      *   0 => '1969-12-31',

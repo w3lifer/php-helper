@@ -167,16 +167,16 @@ class MainTest extends \Codeception\Test\Unit
     public function test_get_dates_between_dates()
     {
         $this->assertEquals(
-            ['1969-12-31', '1970-01-01', '1970-01-02'],
-            PhpHelper::get_dates_between_dates('1969-12-31', '1970-01-02')
+            PhpHelper::get_dates_between_dates('1969-12-31', '1970-01-02'),
+            ['1969-12-31', '1970-01-01', '1970-01-02']
         );
         $this->assertEquals(
-            ['12/31/1969', '01/01/1970', '01/02/1970'],
             PhpHelper::get_dates_between_dates(
                 '12/31/1969',
                 '01/02/1970',
                 'm/d/Y'
-            )
+            ),
+            ['12/31/1969', '01/01/1970', '01/02/1970']
         );
     }
 
