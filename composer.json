@@ -18,5 +18,8 @@
     "psr-4": {
       "w3lifer\\phpHelper\\": ""
     }
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3"
   }
 }
