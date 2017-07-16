@@ -5,7 +5,7 @@ namespace w3lifer\phpHelper;
 use DateTime;
 
 /**
- * PHP helper.
+ * PHP Helper.
  * @author Roman Grinyov <w3lifer@gmail.com>
  */
 class PhpHelper
