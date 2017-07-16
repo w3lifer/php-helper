@@ -20,7 +20,7 @@ class PhpHelper
     public static function add_prefix_to_array_keys(
         array $array,
         string $prefix,
-        $recursively = true
+        bool $recursively = true
     ) : array
     {
         $newArray = [];
@@ -46,7 +46,7 @@ class PhpHelper
     public static function add_suffix_to_array_keys(
         array $array,
         string $suffix,
-        $recursively = true
+        bool $recursively = true
     ) : array
     {
         $newArray = [];
