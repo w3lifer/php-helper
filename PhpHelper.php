@@ -15,6 +15,7 @@ class PhpHelper
      * @param string $prefix
      * @param bool   $recursively
      * @return array
+     * @see https://stackoverflow.com/a/2608166/4223982
      */
     public static function add_prefix_to_array_keys(
         array $array,
@@ -40,6 +41,7 @@ class PhpHelper
      * @param string $suffix
      * @param bool   $recursively
      * @return array
+     * @see https://stackoverflow.com/a/2608166/4223982
      */
     public static function add_suffix_to_array_keys(
         array $array,
