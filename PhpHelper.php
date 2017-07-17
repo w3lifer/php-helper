@@ -70,13 +70,11 @@ class PhpHelper
             isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) &&
             array_key_exists($_SERVER['PHP_AUTH_USER'], $credentials) &&
             $credentials[$_SERVER['PHP_AUTH_USER']] === $_SERVER['PHP_AUTH_PW'];
-
         if (!$validated) {
             header('HTTP/1.1 401 Unauthorized');
             header('WWW-Authenticate: Basic');
             return false;
         }
-
         return true;
     }
 
@@ -138,8 +136,8 @@ class PhpHelper
      *   ],
      * ]
      * ```
-     * @param      $csvString
-     * @param bool $removeFirstLine
+     * @param string $csvString
+     * @param bool   $removeFirstLine
      * @return array
      */
     public static function csv_string_to_array(
