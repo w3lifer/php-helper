@@ -4,9 +4,6 @@ namespace w3lifer\phpHelper;
 
 use DateTime;
 
-/**
- * PHP Helper.
- */
 class PhpHelper
 {
     /**
