@@ -86,7 +86,7 @@ class PhpHelper
     /**
      * Clears all cookies.
      * @return bool
-     * @see http://stackoverflow.com/a/2310591/4223982
+     * @see https://stackoverflow.com/a/2310591/4223982
      */
     public static function clear_all_cookies() : bool
     {
@@ -208,7 +208,7 @@ class PhpHelper
      * Makes a string's first character uppercase.
      * @param string $string
      * @return string
-     * @author http://php.net/ucfirst#57298
+     * @author https://php.net/ucfirst#57298
      */
     public static function mb_ucfirst(string $string) : string
     {
