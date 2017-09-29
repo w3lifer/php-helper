@@ -190,6 +190,20 @@ class PhpHelper
     }
 
     /**
+     * Adds timezone offset to timestamp and returns new timestamp.
+     * @param int    $timestamp
+     * @param string $timeZone
+     * @return int
+     */
+    public static function add_timezone_offset_to_timestamp(
+        int $timestamp,
+        string $timeZone
+    ) : int
+    {
+        return $timestamp + self::get_timezone_offset($timeZone);
+    }
+
+    /**
      * Returns timezone offset from the current time zone.
      * @param string $timeZone
      * @return int Timezone offset in seconds.
