@@ -180,6 +180,18 @@ class MainTest extends \Codeception\Test\Unit
         );
     }
 
+    public function test_get_timezone_offset()
+    {
+        $this->assertEquals(
+            10800,
+            PhpHelper::get_timezone_offset('Europe/Minsk')
+        );
+        $this->assertEquals(
+            -25200,
+            PhpHelper::get_timezone_offset('America/Los_Angeles')
+        );
+    }
+
     public function test_is_ajax()
     {
         $this->assertFalse(PhpHelper::is_ajax());

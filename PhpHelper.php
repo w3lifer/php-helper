@@ -3,6 +3,7 @@
 namespace w3lifer\phpHelper;
 
 use DateTime;
+use DateTimeZone;
 
 class PhpHelper
 {
@@ -186,6 +187,16 @@ class PhpHelper
             $dates[] = date($format, strtotime($dates[$i - 1] . '+1 day'));
         }
         return $dates;
+    }
+
+    /**
+     * Returns timezone offset from the current time zone.
+     * @param string $timeZone
+     * @return int Timezone offset in seconds.
+     */
+    public static function get_timezone_offset(string $timeZone) : int
+    {
+        return (new DateTime(null, new DateTimeZone($timeZone)))->getOffset();
     }
 
     /**
