@@ -1,4 +1,4 @@
-# PhpHelper Change Log
+# Change Log
 
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
@@ -6,7 +6,7 @@
 
 ## 1.2.0 July 16, 2017
 
-- Enh: Added method:
+- Added method:
 
 ``` php
 sort_by_date(array $array, string $key, bool $asc = true) : array
@@ -14,7 +14,7 @@ sort_by_date(array $array, string $key, bool $asc = true) : array
 
 ## 1.1.0 July 16, 2017
 
-- Enh: Added methods:
+- Added methods:
 
 ``` php
 add_prefix_to_array_keys(array $array, string $prefix, bool $recursively = true) : array
@@ -24,7 +24,7 @@ add_suffix_to_array_keys(array $array, string $suffix, bool $recursively = true)
 ## 1.0.0 July 16, 2017
 
 - Initial release
-- Methods:
+- Added methods:
 
 ``` php
 auth(array $credentials) : bool
