@@ -180,6 +180,21 @@ class MainTest extends \Codeception\Test\Unit
         );
     }
 
+    public function test_add_timezone_offset_to_timestamp()
+    {
+        $this->assertEquals(
+            14400,
+            PhpHelper::add_timezone_offset_to_timestamp(3600, 'Europe/Minsk')
+        );
+        $this->assertEquals(
+            -21600,
+            PhpHelper::add_timezone_offset_to_timestamp(
+                3600,
+                'America/Los_Angeles'
+            )
+        );
+    }
+
     public function test_get_timezone_offset()
     {
         $this->assertEquals(
