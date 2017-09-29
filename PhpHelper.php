@@ -313,7 +313,9 @@ class PhpHelper
      * @return bool
      * @see https://stackoverflow.com/a/11267139/4223982
      */
-    public static function remove_directory_recursively(string $pathToDirectory)
+    public static function remove_directory_recursively(
+        string $pathToDirectory
+    ) : bool
     {
         foreach (glob($pathToDirectory . '/*') as $pathToFile) {
             if (is_dir($pathToFile)) {
