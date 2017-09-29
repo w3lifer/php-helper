@@ -260,6 +260,18 @@ NOWDOC
             ]));
     }
 
+    public function test_remove_directory_recursively()
+    {
+        $pathToTmpDir = __DIR__ . '/tmp';
+        mkdir($pathToTmpDir);
+        file_put_contents($pathToTmpDir . '/tmp.txt', 'Lorem ipsum ...');
+        mkdir($pathToTmpDir . '/tmp');
+        file_put_contents($pathToTmpDir . '/tmp/tmp.txt', 'Lorem ipsum ...');
+        $this->assertTrue(
+            PhpHelper::remove_directory_recursively($pathToTmpDir)
+        );
+    }
+
     public function test_sort_by_date()
     {
         $this->assertEquals(

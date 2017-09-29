@@ -228,7 +228,7 @@ class PhpHelper
      * Makes a string's first character uppercase.
      * @param string $string
      * @return string
-     * @author https://php.net/ucfirst#57298
+     * @see https://php.net/ucfirst#57298
      */
     public static function mb_ucfirst(string $string) : string
     {
@@ -305,6 +305,24 @@ class PhpHelper
         $arrayAsString =
             preg_replace('=(\R {2,})\),=', '$1],', $arrayAsString);
         return $arrayAsString;
+    }
+
+    /**
+     * Removes directory recursively.
+     * @param string $pathToDirectory
+     * @return bool
+     * @see https://stackoverflow.com/a/11267139/4223982
+     */
+    public static function remove_directory_recursively(string $pathToDirectory)
+    {
+        foreach (glob($pathToDirectory . '/*') as $pathToFile) {
+            if (is_dir($pathToFile)) {
+                self::remove_directory_recursively($pathToFile);
+            } else {
+                unlink($pathToFile);
+            }
+        }
+        return rmdir($pathToDirectory);
     }
 
     /**
