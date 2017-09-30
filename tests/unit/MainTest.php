@@ -335,4 +335,13 @@ NOWDOC
             ], 'date', false)
         );
     }
+
+    public function test_unzip()
+    {
+        $pathToArchive = __DIR__ . '/tmp.zip';
+        $extractTo = __DIR__ . '/tmp';
+        $this->assertFalse(PhpHelper::unzip($pathToArchive, ''));
+        $this->assertTrue(PhpHelper::unzip($pathToArchive, $extractTo));
+        $this->assertTrue(PhpHelper::remove_directory_recursively($extractTo));
+    }
 }

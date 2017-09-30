@@ -4,6 +4,7 @@ namespace w3lifer\phpHelper;
 
 use DateTime;
 use DateTimeZone;
+use ZipArchive;
 
 class PhpHelper
 {
@@ -409,5 +410,24 @@ class PhpHelper
             $array = array_reverse($array);
         }
         return $array;
+    }
+
+    /**
+     * Extracts ZIP archive to the specified path.
+     * @param string $pathToArchive
+     * @param string $extractTo
+     * @return bool|int TRUE on success, FALSE or error number on failure.
+     * @see https://stackoverflow.com/a/8889126/4223982
+     */
+    public static function unzip(string $pathToArchive, string $extractTo)
+    {
+        $zipArchive = new ZipArchive();
+        $result = $zipArchive->open($pathToArchive);
+        if ($result === true) {
+            $extracted = $zipArchive->extractTo($extractTo);
+            $closed = $zipArchive->close();
+            return $extracted && $closed;
+        }
+        return $result;
     }
 }
