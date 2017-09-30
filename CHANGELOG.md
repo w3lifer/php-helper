@@ -1,8 +1,23 @@
 # Change Log
 
+- [2.0.0 September 30, 2017](#200-september-30-2017)
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 2.0.0 September 30, 2017
+
+- Added method:
+
+``` php
+get_timezone_offset(string $timeZone) : int
+add_timezone_offset_to_timestamp(int $timestamp, string $timeZone) : int
+remove_directory_recursively(string $pathToDirectory) : bool
+get_random_weighted_element(array $weightedValues)
+unzip(string $pathToArchive, string $extractTo)
+```
+
+- `add_suffix_to_array_keys()` renamed to `add_postfix_to_array_keys()`
 
 ## 1.2.0 July 16, 2017
 
