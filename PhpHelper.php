@@ -42,7 +42,7 @@ class PhpHelper
      * @return array
      * @see https://stackoverflow.com/a/2608166/4223982
      */
-    public static function add_suffix_to_array_keys(
+    public static function add_postfix_to_array_keys(
         array $array,
         string $suffix,
         bool $recursively = true
@@ -52,7 +52,7 @@ class PhpHelper
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
                 $newArray[$key . $suffix] =
-                    self::add_suffix_to_array_keys($value, $suffix);
+                    self::add_postfix_to_array_keys($value, $suffix);
                 continue;
             }
             $newArray[$key . $suffix] = $value;

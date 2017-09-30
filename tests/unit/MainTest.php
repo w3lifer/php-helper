@@ -59,19 +59,19 @@ class MainTest extends \Codeception\Test\Unit
         );
     }
 
-    public function test_add_suffix_to_array_keys()
+    public function test_add_postfix_to_array_keys()
     {
         $this->assertEquals(
             [],
-            PhpHelper::add_suffix_to_array_keys([], '')
+            PhpHelper::add_postfix_to_array_keys([], '')
         );
         $this->assertEquals(
             ['a' => 1, 'b' => 2],
-            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '')
+            PhpHelper::add_postfix_to_array_keys(['a' => 1, 'b' => 2], '')
         );
         $this->assertEquals(
             ['a_' => 1, 'b_' => 2],
-            PhpHelper::add_suffix_to_array_keys(['a' => 1, 'b' => 2], '_')
+            PhpHelper::add_postfix_to_array_keys(['a' => 1, 'b' => 2], '_')
         );
         $this->assertEquals(
             [
@@ -79,7 +79,7 @@ class MainTest extends \Codeception\Test\Unit
                 'b_' => 2,
                 'c_' => ['a_' => 11, 'b_' => 22]
             ],
-            PhpHelper::add_suffix_to_array_keys([
+            PhpHelper::add_postfix_to_array_keys([
                 'a' => 1,
                 'b' => 2,
                 'c' => ['a' => 11, 'b' => 22]
@@ -91,7 +91,7 @@ class MainTest extends \Codeception\Test\Unit
                 'b_' => 2,
                 'c_' => ['a' => 11, 'b' => 22]
             ],
-            PhpHelper::add_suffix_to_array_keys([
+            PhpHelper::add_postfix_to_array_keys([
                 'a' => 1,
                 'b' => 2,
                 'c' => ['a' => 11, 'b' => 22]
