@@ -204,6 +204,33 @@ class PhpHelper
     }
 
     /**
+     * Utility function for getting random values with weighting.
+     * Pass in an associative array, such as `['a' => 5, 'b' => 10, 'c' => 15]`.
+     * An array like this means that "a" has a 5% chance of being selected, "b"
+     * 45%, and "c" 50%. The return value is the array key, "a", "b", or "c" in
+     * this case.
+     * Note that the values assigned do not have to be percentages.
+     * The values are simply relative to each other.
+     * If one value weight was 2, and the other weight of 1, the value with the
+     * weight of 2 has about a 66% chance of being selected.
+     * Also note that weights should be integers.
+     * @param array $weightedValues
+     * @return bool|int|string
+     * @see https://stackoverflow.com/a/11872928/4223982
+     */
+    public static function get_random_weighted_element(array $weightedValues)
+    {
+        $rand = mt_rand(1, (int) array_sum($weightedValues));
+        foreach ($weightedValues as $key => $value) {
+            $rand -= $value;
+            if ($rand <= 0) {
+                return $key;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Returns timezone offset from the current time zone.
      * @param string $timeZone
      * @return int Timezone offset in seconds.
