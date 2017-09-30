@@ -3,7 +3,7 @@
 Some set of methods ...
 
 - `add_prefix_to_array_keys(array $array, string $prefix, bool $recursively = true) : array`
-- `add_suffix_to_array_keys(array $array, string $suffix, bool $recursively = true) : array`
+- `add_postfix_to_array_keys(array $array, string $suffix, bool $recursively = true) : array`
 - `auth(array $credentials) : bool`
 - `clear_all_cookies() : bool`
 - `csv_string_to_array(string $csvString, bool $removeFirstLine = false) : array`
