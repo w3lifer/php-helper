@@ -60,6 +60,20 @@ class PhpHelper
     }
 
     /**
+     * Adds timezone offset to timestamp and returns new timestamp.
+     * @param int    $timestamp
+     * @param string $timeZone
+     * @return int
+     */
+    public static function add_timezone_offset_to_timestamp(
+        int $timestamp,
+        string $timeZone
+    ) : int
+    {
+        return $timestamp + self::get_timezone_offset($timeZone);
+    }
+
+    /**
      * Basic access authentication.
      * @param array $credentials An array whose keys are logins and values are
      *                           passwords.
@@ -187,20 +201,6 @@ class PhpHelper
             $dates[] = date($format, strtotime($dates[$i - 1] . '+1 day'));
         }
         return $dates;
-    }
-
-    /**
-     * Adds timezone offset to timestamp and returns new timestamp.
-     * @param int    $timestamp
-     * @param string $timeZone
-     * @return int
-     */
-    public static function add_timezone_offset_to_timestamp(
-        int $timestamp,
-        string $timeZone
-    ) : int
-    {
-        return $timestamp + self::get_timezone_offset($timeZone);
     }
 
     /**
