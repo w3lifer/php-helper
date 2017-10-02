@@ -35,27 +35,27 @@ class PhpHelper
     }
 
     /**
-     * Returns received array where keys are suffixed with specified suffix.
+     * Returns received array where keys are postfixed with specified postfix.
      * @param array  $array
-     * @param string $suffix
+     * @param string $postfix
      * @param bool   $recursively
      * @return array
      * @see https://stackoverflow.com/a/2608166/4223982
      */
     public static function add_postfix_to_array_keys(
         array $array,
-        string $suffix,
+        string $postfix,
         bool $recursively = true
     ) : array
     {
         $newArray = [];
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
-                $newArray[$key . $suffix] =
-                    self::add_postfix_to_array_keys($value, $suffix);
+                $newArray[$key . $postfix] =
+                    self::add_postfix_to_array_keys($value, $postfix);
                 continue;
             }
-            $newArray[$key . $suffix] = $value;
+            $newArray[$key . $postfix] = $value;
         }
         return $newArray;
     }
