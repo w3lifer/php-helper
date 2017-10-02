@@ -99,6 +99,37 @@ class MainTest extends \Codeception\Test\Unit
         );
     }
 
+    public function test_add_zero_prefix()
+    {
+        $this->assertEquals('00', PhpHelper::add_zero_prefix(0));
+        $this->assertEquals('01', PhpHelper::add_zero_prefix(1));
+        $this->assertEquals('10', PhpHelper::add_zero_prefix(10));
+        $this->assertEquals('11', PhpHelper::add_zero_prefix(11));
+
+        // ---------------------------------------------------------------------
+
+        $this->assertEquals('000', PhpHelper::add_zero_prefix(0, 2));
+        $this->assertEquals('001', PhpHelper::add_zero_prefix(1, 2));
+        $this->assertEquals('010', PhpHelper::add_zero_prefix(10, 2));
+        $this->assertEquals('011', PhpHelper::add_zero_prefix(11, 2));
+
+        $this->assertEquals('100', PhpHelper::add_zero_prefix(100, 2));
+        $this->assertEquals('111', PhpHelper::add_zero_prefix(111, 2));
+
+        // ---------------------------------------------------------------------
+
+        $this->assertEquals('0000', PhpHelper::add_zero_prefix(0, 3));
+        $this->assertEquals('0001', PhpHelper::add_zero_prefix(1, 3));
+        $this->assertEquals('0010', PhpHelper::add_zero_prefix(10, 3));
+        $this->assertEquals('0011', PhpHelper::add_zero_prefix(11, 3));
+
+        $this->assertEquals('0100', PhpHelper::add_zero_prefix(100, 3));
+        $this->assertEquals('0111', PhpHelper::add_zero_prefix(111, 3));
+
+        $this->assertEquals('1000', PhpHelper::add_zero_prefix(1000, 3));
+        $this->assertEquals('1111', PhpHelper::add_zero_prefix(1111, 3));
+    }
+
     public function test_auth()
     {
         $this->assertFalse(PhpHelper::auth([]));

@@ -61,6 +61,26 @@ class PhpHelper
     }
 
     /**
+     * Returns the passed value with a zero prefix, if the value is less than
+     * 1e<order>.
+     * @param string $value
+     * @param int    $order
+     * @return string
+     */
+    public static function add_zero_prefix(
+        string $value,
+        int $order = 1
+    ) : string
+    {
+        $times = 0;
+        $orderValue = pow(10, $order);
+        if ($value < $orderValue) {
+            $times = strlen($orderValue) - strlen($value);
+        }
+        return str_repeat(0, $times) . $value;
+    }
+
+    /**
      * Basic access authentication.
      * @param array $credentials An array whose keys are logins and values are
      *                           passwords.

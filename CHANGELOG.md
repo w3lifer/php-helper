@@ -1,14 +1,15 @@
 # Change Log
 
-- [3.0.0](#300)
+- [3.0.0 October 3, 2017](#300-october-3-2017)
 - [2.0.0 September 30, 2017](#200-september-30-2017)
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
 
-## 3.0.0
+## 3.0.0 October 3, 2017
 
 - Removed `add_timezone_offset_to_timestamp()`: just use `$timestamp += PhpHelper::get_timezone_offset($timeZone)`
+- Added `add_zero_prefix(string $value, int $order = 1) : string`
 
 ## 2.0.0 September 30, 2017
 
