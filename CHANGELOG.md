@@ -1,9 +1,14 @@
 # Change Log
 
+- [3.0.0](#300)
 - [2.0.0 September 30, 2017](#200-september-30-2017)
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 3.0.0
+
+- Removed `add_timezone_offset_to_timestamp()`: just use `$timestamp += PhpHelper::get_timezone_offset($timeZone)`
 
 ## 2.0.0 September 30, 2017
 

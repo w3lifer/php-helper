@@ -13,7 +13,6 @@ composer require w3lifer/php-helper
 
 - `add_prefix_to_array_keys(array $array, string $prefix, bool $recursively = true) : array`
 - `add_postfix_to_array_keys(array $array, string $postfix, bool $recursively = true) : array`
-- `add_timezone_offset_to_timestamp(int $timestamp, string $timeZone) : int`
 - `auth(array $credentials) : bool`
 - `clear_all_cookies() : bool`
 - `csv_string_to_array(string $csvString, bool $removeFirstLine = false) : array`
