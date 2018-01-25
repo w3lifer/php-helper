@@ -1,10 +1,19 @@
 # Change Log
 
+- [3.1.0 January 26, 2018](310-january-26-2018)
 - [3.0.0 October 3, 2017](#300-october-3-2017)
 - [2.0.0 September 30, 2017](#200-september-30-2017)
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 3.1.0 January 26, 2018
+
+- Added:
+
+``` php
+str_repeat_with_separator(string $input, int $multiplier, string $separator = '') : string
+```
 
 ## 3.0.0 October 3, 2017
 
@@ -13,7 +22,7 @@
 
 ## 2.0.0 September 30, 2017
 
-- Added method:
+- Added:
 
 ``` php
 get_timezone_offset(string $timeZone) : int
@@ -27,7 +36,7 @@ unzip(string $pathToArchive, string $extractTo)
 
 ## 1.2.0 July 16, 2017
 
-- Added method:
+- Added:
 
 ``` php
 sort_by_date(array $array, string $key, bool $asc = true) : array
@@ -35,7 +44,7 @@ sort_by_date(array $array, string $key, bool $asc = true) : array
 
 ## 1.1.0 July 16, 2017
 
-- Added methods:
+- Added:
 
 ``` php
 add_prefix_to_array_keys(array $array, string $prefix, bool $recursively = true) : array
