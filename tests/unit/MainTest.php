@@ -352,6 +352,46 @@ NOWDOC
         );
     }
 
+    public function test_str_repeat_with_separator()
+    {
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('', 0) === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('', 1) === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('', 2) === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 0) === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 1) === 'a'
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 2) === 'aa'
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 0, '') === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 1, '') === 'a'
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 2, '') === 'aa'
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 0, '|') === ''
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 1, '|') === 'a'
+        );
+        $this->assertTrue(
+            PhpHelper::str_repeat_with_separator('a', 2, '|') === 'a|a'
+        );
+    }
+
     public function test_unzip()
     {
         $pathToArchive = __DIR__ . '/tmp.zip';

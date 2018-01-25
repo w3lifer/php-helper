@@ -1,4 +1,4 @@
-# php-helper
+# PHP Helper
 
 - [Installation](#installation)
 - [Methods](#methods)
@@ -26,4 +26,5 @@ composer require w3lifer/php-helper
 - `pretty_var_export_hard(array $array) : string`
 - `remove_directory_recursively(string $pathToDirectory) : bool`
 - `sort_by_date(array $array, string $key, bool $asc = true) : array`
+- `str_repeat_with_separator(string $input, int $multiplier, string $separator = '') : string`
 - `unzip(string $pathToArchive, string $extractTo)`

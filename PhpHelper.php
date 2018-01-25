@@ -419,6 +419,25 @@ class PhpHelper
     }
 
     /**
+     * @param string $input
+     * @param int    $multiplier
+     * @param string $separator
+     * @return string
+     * @see https://php.net/str-repeat
+     * @see https://php.net/str-repeat#88830
+     */
+    public static function str_repeat_with_separator(
+        string $input,
+        int $multiplier,
+        string $separator = ''
+    ) : string {
+        return
+            $multiplier === 0
+                ? ''
+                : str_repeat($input . $separator, $multiplier - 1) . $input;
+    }
+
+    /**
      * Extracts ZIP archive to the specified path.
      * @param string $pathToArchive
      * @param string $extractTo
