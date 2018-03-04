@@ -1,11 +1,20 @@
 # Change Log
 
-- [3.1.0 January 26, 2018](310-january-26-2018)
+- [3.2.0 March 4, 2018](#320-march-4-2018)
+- [3.1.0 January 26, 2018](#310-january-26-2018)
 - [3.0.0 October 3, 2017](#300-october-3-2017)
 - [2.0.0 September 30, 2017](#200-september-30-2017)
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 3.2.0 March 4, 2018
+
+- Added:
+
+``` php
+get_files_in_directory(string $pathToDirectory, bool $recursively = false, &$result = []) : array
+```
 
 ## 3.1.0 January 26, 2018
 

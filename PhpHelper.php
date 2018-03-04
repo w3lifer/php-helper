@@ -211,6 +211,37 @@ class PhpHelper
     }
 
     /**
+     * Returns an array of file names in the specified directory.
+     * Note that directories will not be listed in the returned array.
+     * @param string $pathToDirectory
+     * @param bool   $recursively
+     * @param array  $result
+     * @return array
+     * @see https://stackoverflow.com/a/24784144/4223982
+     */
+    public static function get_files_in_directory(
+        string $pathToDirectory,
+        bool $recursively = false,
+        &$result = []
+    ) : array {
+        $fileNames = scandir($pathToDirectory);
+        foreach ($fileNames as $fileName) {
+            $path =
+                realpath($pathToDirectory . DIRECTORY_SEPARATOR . $fileName);
+            if (!is_dir($path)) {
+                $result[] = $path;
+            } else if (
+                $recursively &&
+                $fileName !== '.' &&
+                $fileName !== '..'
+            ) {
+                self::get_files_in_directory($path, $recursively, $result);
+            }
+        }
+        return $result;
+    }
+
+    /**
      * Utility function for getting random values with weighting.
      * Pass in an associative array, such as `['a' => 5, 'b' => 10, 'c' => 15]`.
      * An array like this means that "a" has a 5% chance of being selected, "b"

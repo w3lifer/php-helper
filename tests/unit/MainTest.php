@@ -16,7 +16,8 @@ class MainTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
-        $this->pathToDataDirectory = __DIR__ . '/../data-for-unit-tests';
+        $this->pathToDataDirectory =
+            realpath(__DIR__ . '/../data-for-unit-tests');
     }
 
     protected function _after()
@@ -214,6 +215,23 @@ class MainTest extends \Codeception\Test\Unit
                 '01/02/1970',
                 'm/d/Y'
             )
+        );
+    }
+
+    public function test_get_files_in_directory()
+    {
+        $paths = scandir($this->pathToDataDirectory);
+        $fileNames= [];
+        foreach ($paths as $path) {
+            $fileName = $this->pathToDataDirectory . '/' . $path;
+            if (is_file($fileName)) {
+                $fileNames[] = $fileName;
+            }
+        }
+
+        $this->assertEquals(
+            $fileNames,
+            PhpHelper::get_files_in_directory($this->pathToDataDirectory)
         );
     }
 
