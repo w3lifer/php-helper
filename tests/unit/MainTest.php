@@ -9,8 +9,14 @@ class MainTest extends \Codeception\Test\Unit
      */
     protected $tester;
 
+    /**
+     * @var string
+     */
+    private $pathToDataDirectory;
+
     protected function _before()
     {
+        $this->pathToDataDirectory = __DIR__ . '/../data-for-unit-tests';
     }
 
     protected function _after()
@@ -394,8 +400,8 @@ NOWDOC
 
     public function test_unzip()
     {
-        $pathToArchive = __DIR__ . '/../_data/tmp.zip';
-        $extractTo = __DIR__ . '/../_data/tmp';
+        $pathToArchive = $this->pathToDataDirectory . '/tmp.zip';
+        $extractTo = $this->pathToDataDirectory . '/tmp';
         $this->assertFalse(PhpHelper::unzip($pathToArchive, ''));
         $this->assertTrue(PhpHelper::unzip($pathToArchive, $extractTo));
         $this->assertTrue(PhpHelper::remove_directory_recursively($extractTo));
