@@ -394,8 +394,8 @@ NOWDOC
 
     public function test_unzip()
     {
-        $pathToArchive = __DIR__ . '/tmp.zip';
-        $extractTo = __DIR__ . '/tmp';
+        $pathToArchive = __DIR__ . '/../_data/tmp.zip';
+        $extractTo = __DIR__ . '/../_data/tmp';
         $this->assertFalse(PhpHelper::unzip($pathToArchive, ''));
         $this->assertTrue(PhpHelper::unzip($pathToArchive, $extractTo));
         $this->assertTrue(PhpHelper::remove_directory_recursively($extractTo));
