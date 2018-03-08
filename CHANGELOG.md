@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.0.0 March 8, 2018](#400-march-8-2018)
 - [3.2.0 March 4, 2018](#320-march-4-2018)
 - [3.1.0 January 26, 2018](#310-january-26-2018)
 - [3.0.0 October 3, 2017](#300-october-3-2017)
@@ -7,6 +8,10 @@
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 4.0.0 March 8, 2018
+
+- Added the ability to pass file extensions for `get_files_in_directory()` method
 
 ## 3.2.0 March 4, 2018
 

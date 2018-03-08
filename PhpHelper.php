@@ -215,6 +215,7 @@ class PhpHelper
      * Note that directories will not be listed in the returned array.
      * @param string $pathToDirectory
      * @param bool   $recursively
+     * @param array  $fileExtensions
      * @param array  $result
      * @return array
      * @see https://stackoverflow.com/a/24784144/4223982
@@ -222,6 +223,7 @@ class PhpHelper
     public static function get_files_in_directory(
         string $pathToDirectory,
         bool $recursively = false,
+        array $fileExtensions = [],
         &$result = []
     ) : array {
         $fileNames = scandir($pathToDirectory);
@@ -229,13 +231,27 @@ class PhpHelper
             $path =
                 realpath($pathToDirectory . DIRECTORY_SEPARATOR . $fileName);
             if (!is_dir($path)) {
-                $result[] = $path;
+                if ($fileExtensions) {
+                    foreach ($fileExtensions as $fileExtension) {
+                        if (preg_match('=\.' . $fileExtension .'$=i', $path)) {
+                            $result[] = $path;
+                            continue 2;
+                        }
+                    }
+                } else {
+                    $result[] = $path;
+                }
             } else if (
                 $recursively &&
                 $fileName !== '.' &&
                 $fileName !== '..'
             ) {
-                self::get_files_in_directory($path, $recursively, $result);
+                self::get_files_in_directory(
+                    $path,
+                    $recursively,
+                    $fileExtensions,
+                    $result
+                );
             }
         }
         return $result;
