@@ -258,6 +258,15 @@ class PhpHelper
     }
 
     /**
+     * @param int $dayOfWeek
+     * @return int 0-6 (Monday-Sunday)
+     */
+    public static function get_normalized_day_of_week(int $dayOfWeek)
+    {
+        return $dayOfWeek === 7 ? 0 : $dayOfWeek;
+    }
+
+    /**
      * Utility function for getting random values with weighting.
      * Pass in an associative array, such as `['a' => 5, 'b' => 10, 'c' => 15]`.
      * An array like this means that "a" has a 5% chance of being selected, "b"

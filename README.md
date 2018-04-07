@@ -19,6 +19,7 @@ composer require w3lifer/php-helper
 - `csv_string_to_array(string $csvString, bool $removeFirstLine = false) : array`
 - `get_dates_between_dates(string $startDate, string $endDate, string $format = 'Y-m-d') : array`
 - `get_files_in_directory(string $pathToDirectory, bool $recursively = false, array $fileExtensions = [], &$result = []) : array`
+- `get_normalized_day_of_week(int $dayOfWeek) : int`
 - `get_random_weighted_element(array $weightedValues)`
 - `get_timezone_offset(string $timeZone) : int`
 - `is_ajax() : bool`

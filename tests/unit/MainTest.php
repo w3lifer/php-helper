@@ -235,6 +235,24 @@ class MainTest extends \Codeception\Test\Unit
         );
     }
 
+    public function test_get_normalized_day_of_week()
+    {
+        $this->assertEquals(0, PhpHelper::get_normalized_day_of_week(7));
+        $this->assertEquals(0, PhpHelper::get_normalized_day_of_week('7'));
+        $this->assertEquals(1, PhpHelper::get_normalized_day_of_week(1));
+        $this->assertEquals(1, PhpHelper::get_normalized_day_of_week('1'));
+        $this->assertEquals(2, PhpHelper::get_normalized_day_of_week(2));
+        $this->assertEquals(2, PhpHelper::get_normalized_day_of_week('2'));
+        $this->assertEquals(3, PhpHelper::get_normalized_day_of_week(3));
+        $this->assertEquals(3, PhpHelper::get_normalized_day_of_week('3'));
+        $this->assertEquals(4, PhpHelper::get_normalized_day_of_week(4));
+        $this->assertEquals(4, PhpHelper::get_normalized_day_of_week('4'));
+        $this->assertEquals(5, PhpHelper::get_normalized_day_of_week(5));
+        $this->assertEquals(5, PhpHelper::get_normalized_day_of_week('5'));
+        $this->assertEquals(6, PhpHelper::get_normalized_day_of_week(6));
+        $this->assertEquals(6, PhpHelper::get_normalized_day_of_week('6'));
+    }
+
     public function test_get_timezone_offset()
     {
         $this->assertEquals(
