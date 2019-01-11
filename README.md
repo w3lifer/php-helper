@@ -1,11 +1,11 @@
-# PHP Helper
+# php-helper
 
 - [Installation](#installation)
 - [Methods](#methods)
 
 ## Installation
 
-``` shell
+``` sh
 composer require w3lifer/php-helper
 ```
 
