@@ -81,6 +81,29 @@ class PhpHelper
     }
 
     /**
+     * @param array  $array
+     * @param string $afterKey
+     * @param string $key
+     * @param string $new
+     * @return array
+     * @see https://stackoverflow.com/a/21336407/4223982
+     */
+    public static function array_insert_after_key(
+        array $array,
+        string $afterKey,
+        string $key,
+        string $new
+    ) : array {
+        $pos = (int) array_search($afterKey, array_keys($array)) + 1;
+        return
+            array_merge(
+                array_slice($array, 0, $pos),
+                [$key => $new],
+                array_slice($array, $pos)
+            );
+    }
+
+    /**
      * Basic access authentication.
      * @param array $credentials An array whose keys are logins and values are
      *                           passwords.
@@ -118,6 +141,24 @@ class PhpHelper
             return true;
         }
         return false;
+    }
+
+    /**
+     * @param array  $values
+     * @param string $valueWrapper
+     * @return string
+     */
+    public static function create_sql_values_string(
+        array $values,
+        string $valueWrapper = '"'
+    ) : string {
+        $sqlValues = '(';
+        foreach ($values as $value) {
+            $sqlValues .= $valueWrapper . $value . $valueWrapper . ', ';
+        }
+        $sqlValues = rtrim($sqlValues, ', ');
+        $sqlValues .= ')';
+        return $sqlValues;
     }
 
     /**
@@ -178,6 +219,62 @@ class PhpHelper
             $result[] = str_getcsv($csvLine);
         }
         return $result;
+    }
+
+    /**
+     * Filter input array by passed params.
+     * Example of input array:
+     * ``` php
+     * [
+     *     ['firstname' => 'John', 'lastname' => 'Doe'],
+     *     ['firstname' => 'Вася', 'lastname' => 'Пупкин'],
+     * ]
+     * ```
+     * If passed params are `['firstname' => 'Jo']`, then result will be the
+     * following:
+     * ``` php
+     * [
+     *     ['firstname' => 'John', 'lastname' => 'Doe'],
+     * ]
+     * ```
+     * If passed params are `['firstname' => 'jo']`, then result will be an
+     * empty array (case-sensitive search).
+     * @param array $inputArray
+     * @param array $searchParams
+     * @return array
+     */
+    public static function filter_list_of_arrays_by_key_value_pairs(
+        array $inputArray,
+        array $searchParams
+    ) : array {
+        foreach ($searchParams as $searchParamName => $searchParamValue) {
+            if (
+                !isset($inputArray[0][$searchParamName])
+                ||
+                $searchParamValue === ''
+            ) {
+                continue;
+            }
+            foreach ($inputArray as $rowIndex => $row) {
+                $match = mb_strpos($row[$searchParamName], $searchParamValue);
+                if ($match === false) {
+                    unset($inputArray[$rowIndex]);
+                }
+            }
+        }
+        return $inputArray;
+    }
+
+    /**
+     * @param string $absolutePathToImage
+     * @return string
+     */
+    public static function get_base64_image(
+        string $absolutePathToImage
+    ) : string {
+        $mimeType = mime_content_type($absolutePathToImage);
+        $base64Image = base64_encode(file_get_contents($absolutePathToImage));
+        return 'data:' . $mimeType . ';base64,' . $base64Image;
     }
 
     /**

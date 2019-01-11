@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.2.0 January 11, 2019](#420-january-11-2019)
 - [4.1.0 April 8, 2018](#410-april-8-2018)
 - [4.0.0 March 8, 2018](#400-march-8-2018)
 - [3.2.0 March 4, 2018](#320-march-4-2018)
@@ -9,6 +10,17 @@
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 4.2.0 January 11, 2019
+
+- Added:
+
+``` php
+array_insert_after_key(array $array, string $afterKey, string $key, string $new)
+create_sql_values_string(array $values, string $valueWrapper = '"') : string
+filter_list_of_arrays_by_key_value_pairs(array $inputArray, array $searchParams) : array
+get_base64_image(string $absolutePathToImage) : string
+```
 
 ## 4.1.0 April 8, 2018
 
