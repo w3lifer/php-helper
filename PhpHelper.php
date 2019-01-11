@@ -20,8 +20,7 @@ class PhpHelper
         array $array,
         string $prefix,
         bool $recursively = true
-    ) : array
-    {
+    ) : array {
         $newArray = [];
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
@@ -46,8 +45,7 @@ class PhpHelper
         array $array,
         string $postfix,
         bool $recursively = true
-    ) : array
-    {
+    ) : array {
         $newArray = [];
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
@@ -70,8 +68,7 @@ class PhpHelper
     public static function add_zero_prefix(
         string $value,
         int $order = 1
-    ) : string
-    {
+    ) : string {
         $times = 0;
         $orderValue = pow(10, $order);
         if ($value < $orderValue) {
@@ -206,8 +203,7 @@ class PhpHelper
     public static function csv_string_to_array(
         string $csvString,
         bool $removeFirstLine = false
-    ) : array
-    {
+    ) : array {
         $trimmedCsvString = trim($csvString);
         $explodedCsvString = explode(PHP_EOL, $trimmedCsvString);
         if ($removeFirstLine) {
@@ -297,8 +293,7 @@ class PhpHelper
         string $startDate,
         string $endDate,
         string $format = 'Y-m-d'
-    ) : array
-    {
+    ) : array {
         $dates[] = date($format, strtotime($startDate));
         $dateDiff = (new DateTime($startDate))->diff(new DateTime($endDate));
         for ($i = 1; $i <= $dateDiff->days; $i++) {
@@ -502,8 +497,7 @@ class PhpHelper
      */
     public static function remove_directory_recursively(
         string $pathToDirectory
-    ) : bool
-    {
+    ) : bool {
         foreach (glob($pathToDirectory . '/*') as $pathToFile) {
             if (is_dir($pathToFile)) {
                 self::remove_directory_recursively($pathToFile);
@@ -560,8 +554,7 @@ class PhpHelper
         array $array,
         string $key,
         bool $asc = true
-    ) : array
-    {
+    ) : array {
         usort($array, function ($a, $b) use ($key) {
             return strtotime($a[$key]) - strtotime($b[$key]);
         });
