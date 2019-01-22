@@ -490,6 +490,35 @@ class PhpHelper
     }
 
     /**
+     * @param array $array
+     * @return array
+     * @see http://andrewbaxter.net/quicksort.php
+     */
+    public static function quick_sort(array $array) : array
+    {
+        $length = count($array);
+        if ($length <= 1) {
+            return $array;
+        } else {
+            $pivot = $array[0];
+            $left = $right = [];
+            for ($i = 1; $i < $length; $i++) {
+                if ($array[$i] < $pivot) {
+                    $left[] = $array[$i];
+                } else {
+                    $right[] = $array[$i];
+                }
+            }
+            return
+                array_merge(
+                    self::quick_sort($left),
+                    [$pivot],
+                    self::quick_sort($right)
+                );
+        }
+    }
+
+    /**
      * Removes directory recursively.
      * @param string $pathToDirectory
      * @return bool

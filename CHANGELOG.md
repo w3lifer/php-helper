@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.3.0 January 22, 2019](#430-january-22-2019)
 - [4.2.0 January 11, 2019](#420-january-11-2019)
 - [4.1.0 April 8, 2018](#410-april-8-2018)
 - [4.0.0 March 8, 2018](#400-march-8-2018)
@@ -10,6 +11,14 @@
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 4.3.0 January 22, 2019
+
+- Added:
+
+``` php
+quick_sort(array $array) : array
+```
 
 ## 4.2.0 January 11, 2019
 

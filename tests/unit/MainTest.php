@@ -383,6 +383,16 @@ NOWDOC
             ]));
     }
 
+    public function test_quick_sort()
+    {
+        $this->assertEquals(
+            [1, 2, 2, 5, 7, 8, 9, 21, 23, 24, 43, 92, 99, 114],
+            PhpHelper::quick_sort(
+                [43, 21, 2, 1, 9, 24, 2, 99, 23, 8, 7, 114, 92, 5]
+            )
+        );
+    }
+
     public function test_remove_directory_recursively()
     {
         $pathToTmpDir = __DIR__ . '/tmp';
