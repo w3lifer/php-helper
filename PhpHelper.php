@@ -349,6 +349,15 @@ class PhpHelper
         return $result;
     }
 
+    public static function get_full_url() : string
+    {
+        return
+            $_SERVER['REQUEST_SCHEME'] . '://' .
+            $_SERVER['HTTP_HOST'] . ':' .
+            $_SERVER['SERVER_PORT'] .
+            $_SERVER['REQUEST_URI'];
+    }
+
     /**
      * @param int $dayOfWeek
      * @return int 0-6 (Monday-Sunday)

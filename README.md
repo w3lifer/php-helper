@@ -23,6 +23,7 @@ composer require w3lifer/php-helper
 - `get_base64_image(string $absolutePathToImage) : string`
 - `get_dates_between_dates(string $startDate, string $endDate, string $format = 'Y-m-d') : array`
 - `get_files_in_directory(string $pathToDirectory, bool $recursively = false, array $fileExtensions = [], &$result = []) : array`
+- `get_full_url() : string`
 - `get_normalized_day_of_week(int $dayOfWeek) : int`
 - `get_random_weighted_element(array $weightedValues)`
 - `get_timezone_offset(string $timeZone) : int`
