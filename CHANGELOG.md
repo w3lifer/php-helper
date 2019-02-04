@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.5.0 February 4, 2019](#450-february-4-2019)
 - [4.4.0 January 24, 2019](#440-january-24-2019)
 - [4.3.0 January 22, 2019](#430-january-22-2019)
 - [4.2.0 January 11, 2019](#420-january-11-2019)
@@ -12,6 +13,15 @@
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 4.5.0 February 4, 2019
+
+- Added:
+
+``` php
+put_array_to_csv_file(string $filename, array $array) : bool
+```
+
 
 ## 4.4.0 January 24, 2019
 

@@ -383,6 +383,16 @@ NOWDOC
             ]));
     }
 
+    public function test_put_array_to_csv_file()
+    {
+        $this->assertTrue(
+            PhpHelper::put_array_to_csv_file('tests/_output/tmp.csv', [
+                ['John', 'Doe'],
+                ['Richard', 'Roe'],
+            ])
+        );
+    }
+
     public function test_quick_sort()
     {
         $this->assertEquals(

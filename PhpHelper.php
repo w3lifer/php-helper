@@ -498,6 +498,19 @@ class PhpHelper
         return $arrayAsString;
     }
 
+    public static function put_array_to_csv_file(
+        string $filename,
+        array $array
+    ) : bool {
+        $filePointer = fopen($filename, 'w');
+
+        foreach ($array as $row) {
+            fputcsv($filePointer, $row);
+        }
+
+        return fclose($filePointer);
+    }
+
     /**
      * @param array $array
      * @return array
