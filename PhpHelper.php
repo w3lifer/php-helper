@@ -288,6 +288,7 @@ class PhpHelper
      * @param string $endDate
      * @param string $format
      * @return array
+     * @throws \Exception
      */
     public static function get_dates_between_dates(
         string $startDate,
@@ -398,6 +399,7 @@ class PhpHelper
      * Returns timezone offset from the current time zone.
      * @param string $timeZone
      * @return int Timezone offset in seconds.
+     * @throws \Exception
      */
     public static function get_timezone_offset(string $timeZone) : int
     {
