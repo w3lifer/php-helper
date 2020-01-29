@@ -457,7 +457,7 @@ class PhpHelper
         $arrayAsString = var_export($array, true);
         $arrayAsString =
             preg_replace(
-                '= \=\> \R {2,}array \(=', ' => array (',
+                '= \=> \R {2,}array \(=', ' => array (',
                 $arrayAsString
             );
         return $arrayAsString;
@@ -494,7 +494,7 @@ class PhpHelper
         $arrayAsString =
             preg_replace('=\)$=', ']', $arrayAsString);
         $arrayAsString =
-            preg_replace('= \=\> \R {2,}array \(=', ' => [', $arrayAsString);
+            preg_replace('= \=> \R {2,}array \(=', ' => [', $arrayAsString);
         $arrayAsString =
             preg_replace('=(\R {2,})\),=', '$1],', $arrayAsString);
         return $arrayAsString;
