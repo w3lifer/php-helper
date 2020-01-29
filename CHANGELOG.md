@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.6.0 January 29, 2020](#460-january-29-2020)
 - [4.5.0 February 4, 2019](#450-february-4-2019)
 - [4.4.0 January 24, 2019](#440-january-24-2019)
 - [4.3.0 January 22, 2019](#430-january-22-2019)
@@ -14,6 +15,14 @@
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
 
+## 4.6.0 January 29, 2020
+
+- Added:
+
+``` php
+remove_duplicates_from_multi_dimensional_array(array $array) : array
+```
+
 ## 4.5.0 February 4, 2019
 
 - Added:
@@ -21,7 +30,6 @@
 ``` php
 put_array_to_csv_file(string $filename, array $array) : bool
 ```
-
 
 ## 4.4.0 January 24, 2019
 

@@ -1,8 +1,9 @@
 <?php
 
+use Codeception\Test\Unit;
 use w3lifer\phpHelper\PhpHelper;
 
-class MainTest extends \Codeception\Test\Unit
+class MainTest extends Unit
 {
     /**
      * @var \UnitTester
@@ -413,6 +414,22 @@ NOWDOC
         $this->assertTrue(
             PhpHelper::remove_directory_recursively($pathToTmpDir)
         );
+    }
+
+    public function test_remove_duplicates_from_multi_dimensional_array()
+    {
+        $this->assertSame(
+            [
+                ['a' => 1, 'b' => 2],
+                ['a' => 3, 'b' => 4],
+            ],
+            PhpHelper::remove_duplicates_from_multi_dimensional_array([
+                ['a' => 1, 'b' => 2],
+                ['a' => 3, 'b' => 4],
+                ['a' => 1, 'b' => 2],
+            ])
+        );
+
     }
 
     public function test_sort_by_date()

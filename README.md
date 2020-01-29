@@ -34,6 +34,7 @@ composer require w3lifer/php-helper
 - `put_array_to_csv_file(string $filename, array $array) : bool`
 - `quick_sort(array $array) : array`
 - `remove_directory_recursively(string $pathToDirectory) : bool`
+- `remove_duplicates_from_multi_dimensional_array(array $array) : array`
 - `sort_by_date(array $array, string $key, bool $asc = true) : array`
 - `str_repeat_with_separator(string $input, int $multiplier, string $separator = '') : string`
 - `unzip(string $pathToArchive, string $extractTo)`

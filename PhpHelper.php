@@ -562,6 +562,37 @@ class PhpHelper
     }
 
     /**
+     * Removes duplicates from a multi-dimensional array.
+     * Example of the incoming array:
+     * ```
+     * [
+     *   ['a' => 1, 'b' => 2],
+     *   ['a' => 3, 'b' => 4],
+     *   ['a' => 1, 'b' => 2],
+     * ]
+     * ```
+     * Example of the returned array:
+     * ```
+     * [
+     *   ['a' => 1, 'b' => 2],
+     *   ['a' => 3, 'b' => 4],
+     * ]
+     *
+     * ```
+     * @param array $array
+     * @return array
+     * @see https://stackoverflow.com/a/946300/4223982
+     */
+    public static function remove_duplicates_from_multi_dimensional_array(
+        array $array
+    ) : array {
+        return array_map(
+            'unserialize',
+            array_unique(array_map('serialize', $array))
+        );
+    }
+
+    /**
      * Sorts array by date.
      * For example, if the received array will be as the following:
      * ```
