@@ -20,7 +20,8 @@ class PhpHelper
         array $array,
         string $prefix,
         bool $recursively = true
-    ) : array {
+    ) : array
+    {
         $newArray = [];
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
@@ -45,7 +46,8 @@ class PhpHelper
         array $array,
         string $postfix,
         bool $recursively = true
-    ) : array {
+    ) : array
+    {
         $newArray = [];
         foreach ($array as $key => $value) {
             if ($recursively && is_array($value)) {
@@ -68,7 +70,8 @@ class PhpHelper
     public static function add_zero_prefix(
         string $value,
         int $order = 1
-    ) : string {
+    ) : string
+    {
         $times = 0;
         $orderValue = pow(10, $order);
         if ($value < $orderValue) {
@@ -90,7 +93,8 @@ class PhpHelper
         string $afterKey,
         string $key,
         string $new
-    ) : array {
+    ) : array
+    {
         $pos = (int) array_search($afterKey, array_keys($array)) + 1;
         return
             array_merge(
@@ -148,7 +152,8 @@ class PhpHelper
     public static function create_sql_values_string(
         array $values,
         string $valueWrapper = '"'
-    ) : string {
+    ) : string
+    {
         $sqlValues = '(';
         foreach ($values as $value) {
             $sqlValues .= $valueWrapper . $value . $valueWrapper . ', ';
@@ -203,7 +208,8 @@ class PhpHelper
     public static function csv_string_to_array(
         string $csvString,
         bool $removeFirstLine = false
-    ) : array {
+    ) : array
+    {
         $trimmedCsvString = trim($csvString);
         $explodedCsvString = explode(PHP_EOL, $trimmedCsvString);
         if ($removeFirstLine) {
@@ -242,7 +248,8 @@ class PhpHelper
     public static function filter_list_of_arrays_by_key_value_pairs(
         array $inputArray,
         array $searchParams
-    ) : array {
+    ) : array
+    {
         foreach ($searchParams as $searchParamName => $searchParamValue) {
             if (
                 !isset($inputArray[0][$searchParamName])
@@ -267,7 +274,8 @@ class PhpHelper
      */
     public static function get_base64_image(
         string $absolutePathToImage
-    ) : string {
+    ) : string
+    {
         $mimeType = mime_content_type($absolutePathToImage);
         $base64Image = base64_encode(file_get_contents($absolutePathToImage));
         return 'data:' . $mimeType . ';base64,' . $base64Image;
@@ -294,7 +302,8 @@ class PhpHelper
         string $startDate,
         string $endDate,
         string $format = 'Y-m-d'
-    ) : array {
+    ) : array
+    {
         $dates[] = date($format, strtotime($startDate));
         $dateDiff = (new DateTime($startDate))->diff(new DateTime($endDate));
         for ($i = 1; $i <= $dateDiff->days; $i++) {
@@ -318,7 +327,8 @@ class PhpHelper
         bool $recursively = false,
         array $fileExtensions = [],
         &$result = []
-    ) : array {
+    ) : array
+    {
         $fileNames = scandir($pathToDirectory);
         foreach ($fileNames as $fileName) {
             $path =
@@ -503,7 +513,8 @@ class PhpHelper
     public static function put_array_to_csv_file(
         string $filename,
         array $array
-    ) : bool {
+    ) : bool
+    {
         $filePointer = fopen($filename, 'w');
 
         foreach ($array as $row) {
@@ -550,7 +561,8 @@ class PhpHelper
      */
     public static function remove_directory_recursively(
         string $pathToDirectory
-    ) : bool {
+    ) : bool
+    {
         foreach (glob($pathToDirectory . '/*') as $pathToFile) {
             if (is_dir($pathToFile)) {
                 self::remove_directory_recursively($pathToFile);
@@ -585,7 +597,8 @@ class PhpHelper
      */
     public static function remove_duplicates_from_multi_dimensional_array(
         array $array
-    ) : array {
+    ) : array
+    {
         return array_map(
             'unserialize',
             array_unique(array_map('serialize', $array))
@@ -638,7 +651,8 @@ class PhpHelper
         array $array,
         string $key,
         bool $asc = true
-    ) : array {
+    ) : array
+    {
         usort($array, function ($a, $b) use ($key) {
             return strtotime($a[$key]) - strtotime($b[$key]);
         });
@@ -660,7 +674,8 @@ class PhpHelper
         string $input,
         int $multiplier,
         string $separator = ''
-    ) : string {
+    ) : string
+    {
         return
             $multiplier === 0
                 ? ''
