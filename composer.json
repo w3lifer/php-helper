@@ -8,7 +8,8 @@
   "require": {
     "php": "^7.0",
     "ext-zip": ">=1.0",
-    "ext-fileinfo": ">=1.0"
+    "ext-fileinfo": ">=1.0",
+    "ext-SimpleXML": "*"
   },
   "authors": [
     {

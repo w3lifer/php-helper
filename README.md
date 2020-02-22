@@ -15,6 +15,7 @@ composer require w3lifer/php-helper
 - `add_postfix_to_array_keys(array $array, string $postfix, bool $recursively = true) : array`
 - `add_zero_prefix(string $value, int $order = 1) : string`
 - `array_insert_after_key(array $array, string $afterKey, string $key, string $new)`
+- `array_to_xml(array $data, SimpleXMLElement &$xmlData = null) : string`
 - `auth(array $credentials) : bool`
 - `clear_all_cookies() : bool`
 - `create_sql_values_string(array $values, string $valueWrapper = '"') : string`

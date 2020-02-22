@@ -4,6 +4,7 @@ namespace w3lifer\phpHelper;
 
 use DateTime;
 use DateTimeZone;
+use SimpleXMLElement;
 use ZipArchive;
 
 class PhpHelper
@@ -102,6 +103,36 @@ class PhpHelper
                 [$key => $new],
                 array_slice($array, $pos)
             );
+    }
+
+    /**
+     * @param array                  $data
+     * @param \SimpleXMLElement|null $xmlData
+     * @return string
+     * @see https://stackoverflow.com/a/5965940/4223982
+     */
+    public static function array_to_xml(
+        array $data,
+        SimpleXMLElement &$xmlData = null
+    ) : string
+    {
+        if ($xmlData === null) {
+            $xmlData = new SimpleXMLElement(
+                '<?xml version="1.0"?><data></data>'
+            );
+        }
+        foreach ($data as $key => $value) {
+            if(is_array($value)) {
+                if (is_numeric($key)) {
+                    $key = 'item' . $key; // Dealing with <0/>..<n/> issues
+                }
+                $subnode = $xmlData->addChild($key);
+                self::array_to_xml($value, $subnode);
+            } else {
+                $xmlData->addChild($key, htmlspecialchars($value));
+            }
+        }
+        return $xmlData->asXML();
     }
 
     /**

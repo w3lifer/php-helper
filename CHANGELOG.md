@@ -1,5 +1,6 @@
 # Change Log
 
+- [4.7.0 February 22, 2020](#470-february-22-2020)
 - [4.6.0 January 29, 2020](#460-january-29-2020)
 - [4.5.0 February 4, 2019](#450-february-4-2019)
 - [4.4.0 January 24, 2019](#440-january-24-2019)
@@ -14,6 +15,14 @@
 - [1.2.0 July 16, 2017](#120-july-16-2017)
 - [1.1.0 July 16, 2017](#110-july-16-2017)
 - [1.0.0 July 16, 2017](#100-july-16-2017)
+
+## 4.7.0 February 22, 2020
+
+- Added:
+
+``` php
+array_to_xml(array $data, SimpleXMLElement &$xmlData = null) : string
+```
 
 ## 4.6.0 January 29, 2020
 

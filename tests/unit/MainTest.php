@@ -153,6 +153,32 @@ class MainTest extends Unit
         );
     }
 
+    public function test_array_to_xml()
+    {
+        $this->assertEquals(
+            '<?xml version="1.0"?>
+<data><item0><a>1</a><b>1</b><c>1</c></item0><item1><a>2</a><b>2</b><c>2</c></item1><item2><a>3</a><b>3</b><c>3</c></item2></data>
+',
+            PhpHelper::array_to_xml([
+                [
+                    'a' => 1,
+                    'b' => 1,
+                    'c' => 1,
+                ],
+                [
+                    'a' => 2,
+                    'b' => 2,
+                    'c' => 2,
+                ],
+                [
+                    'a' => 3,
+                    'b' => 3,
+                    'c' => 3,
+                ],
+            ])
+        );
+    }
+
     public function test_auth()
     {
         $this->assertFalse(PhpHelper::auth([]));
