@@ -122,7 +122,7 @@ class PhpHelper
             );
         }
         foreach ($data as $key => $value) {
-            if(is_array($value)) {
+            if (is_array($value)) {
                 if (is_numeric($key)) {
                     $key = 'item' . $key; // Dealing with <0/>..<n/> issues
                 }
